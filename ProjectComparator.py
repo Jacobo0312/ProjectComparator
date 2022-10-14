@@ -71,15 +71,6 @@ for i in range(0,PROJECTS):
     VPN.append(sum(VPS[i]))
     TIR.append(npf.irr(FLOWS[i]))
 
-"""
-#Mostrar vpn y tir de cada proyecto
-
-for i in range(0,PROJECTS):
-    print("VPN del proyecto "+str(i)+": "+str(VPN[i]))
-    print("TIR del proyecto "+str(i)+": "+str(TIR[i]))
-
-"""
-
 
 #Crear lista de proyectos
 
@@ -120,11 +111,24 @@ def compareProjects(rankingTir, rankingVpn):
             print("TEST")
 
 
-#def vs(project1, project2):
+#Project 1 VPN > Project 2 VPN
+def vs(project1, project2):
+    flows=list()
+
+    for i in range(0,YEARS+1):
+        flows.append(project1.getFlows()[i]-project2.getFlows()[i])
+
+    vpn=(project1.getVpn()-project2.getVpn())+flows[0]
+
+    tir=npf.irr(flows)
+
+    return vpn,tir
 
 
+print(vs(PROJECTS_LIST[0],PROJECTS_LIST[1]))
 
-compareProjects(rankingTir, rankingVpn)
+
+#compareProjects(rankingTir, rankingVpn)
 
 
 

@@ -34,7 +34,7 @@ class Project:
     ##To String
 
     def __str__(self):
-        return "Project [name=" + self.name + ", flows=" + str(self.flows) + ", vpn=" + str(self.vpn) + ", tir=" + str(self.tir) + "]"
+        return "Project NAME:" + self.name + "\nFLOWS:" + str(self.flows) + "\nVPN:" + str(self.vpn) + "\nTIR:" + str(self.tir)+"\n-------------------"
 
     ##Equals
 
